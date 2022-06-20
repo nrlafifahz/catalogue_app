@@ -28,16 +28,12 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    private String computer;
-    private String test;
-    
     
     @PostMapping(value = "/add")
     public ResponseEntity<ResponseModel>postCategoryController(@RequestBody CategoryModel categoryModel){
         try {
             //request
             CategoryEntity category = categoryService.add(categoryModel);
-            System.out.print(computer);
 
             //response
             ResponseModel response = new ResponseModel();
