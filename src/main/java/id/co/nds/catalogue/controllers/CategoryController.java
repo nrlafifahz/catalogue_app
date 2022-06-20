@@ -29,6 +29,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     private String computer;
+    private String test;
     
     
     @PostMapping(value = "/add")
@@ -37,7 +38,7 @@ public class CategoryController {
             //request
             CategoryEntity category = categoryService.add(categoryModel);
             System.out.print(computer);
-            
+
             //response
             ResponseModel response = new ResponseModel();
             response.setMsg( "New category is successfully added");
