@@ -27,13 +27,17 @@ import id.co.nds.catalogue.services.CategoryService;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    private String computer;
+    
     
     @PostMapping(value = "/add")
     public ResponseEntity<ResponseModel>postCategoryController(@RequestBody CategoryModel categoryModel){
         try {
             //request
             CategoryEntity category = categoryService.add(categoryModel);
-
+            System.out.print(computer);
+            
             //response
             ResponseModel response = new ResponseModel();
             response.setMsg( "New category is successfully added");
