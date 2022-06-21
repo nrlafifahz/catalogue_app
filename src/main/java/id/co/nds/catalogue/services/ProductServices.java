@@ -166,6 +166,16 @@ public class ProductServices implements Serializable {
     }
 
     
+    public List<ProductEntity> findProductsLessThanQuantity() throws ClientException, NotFoundException{
+        List<ProductEntity> products = new ArrayList<>();
+        productRepo.CheckQuantityScheduler().forEach(products::add);
+        return products;
+        
+    }
+
+
+
+    
    
 
 }

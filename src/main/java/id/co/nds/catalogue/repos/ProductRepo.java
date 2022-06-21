@@ -26,6 +26,11 @@ public interface ProductRepo extends JpaRepository<ProductEntity,Integer>, JpaSp
     " WHERE p.category_id=?1",nativeQuery = true)
     List<ProductEntity>findProductsByCategoryId(String categoryId);
 
+    @Query(value = "SELECT * FROM ms_product WHERE rec_status = '" + GlobalConstants.REC_STATUS_ACTIVE
+    + "' AND quantity < 5",nativeQuery = true)
+    List<ProductEntity>CheckQuantityScheduler();
+
+
     // @Modifying
     // @Query(value = "UPDATE ms_product SET rec_status = '" +" ' , deleter_id = ?2, deleted_date = NOW("
     // +"WHERE id = ?1", nativeQuery = true)
